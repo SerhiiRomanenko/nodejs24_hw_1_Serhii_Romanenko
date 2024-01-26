@@ -2,9 +2,12 @@ console.log("Logger connected correctly!");
 
 function logger(module) {
   return {
-    info: (text) => console.info(`${module}: ${text}`),
-    warn: (text) => console.warn(`${module}: ${text}`),
-    error: (text) => console.error(`${module}: ${text}`),
+    info: (...allIncomingThings) =>
+      console.info(`${module}:`, ...allIncomingThings),
+    warn: (...allIncomingThings) =>
+      console.warn(`${module}:`, ...allIncomingThings),
+    error: (...allIncomingThings) =>
+      console.error(`${module}:`, ...allIncomingThings),
   };
 }
 module.exports = logger;
