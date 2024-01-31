@@ -1,0 +1,20 @@
+{
+  "name": "nodejs24_hw_1_serhii_romanenko",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node ./main.js",
+    "live": "nodemon ./main.js"
+  },
+  "author": "Serhii",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "config": "^3.3.10",
+    "dotenv": "^16.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
