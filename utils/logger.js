@@ -1,12 +1,12 @@
 const colors = require("colors/safe");
 
 const config = require("config");
-config.COLORS_ENABLED == 1 ? colors.enable() : colors.disable();
+if (!config.COLORS_ENABLED) colors.disable();
 
 console.log("Logger connected correctly!");
 
 function logger(module) {
-  let loggerMethods = {
+  return {
     info: (...allIncomingThings) =>
       config.LOG_LEVEL === "info" &&
       console.info(colors.bgGreen(`${module}:`), ...allIncomingThings),
@@ -16,6 +16,5 @@ function logger(module) {
     error: (...allIncomingThings) =>
       console.error(colors.bgRed(`${module}:`), ...allIncomingThings),
   };
-  return loggerMethods;
 }
 module.exports = logger;

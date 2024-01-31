@@ -1,5 +1,5 @@
-let COLORS_ENABLED = process.env.COLORS_ENABLED || 0;
-let LOG_LEVEL = process.env.LOG_LEVEL || "warn";
+const COLORS_ENABLED = process.env.COLORS_ENABLED === "1";
+const LOG_LEVEL = process.env.LOG_LEVEL || "warn";
 
 module.exports = {
   COLORS_ENABLED,
