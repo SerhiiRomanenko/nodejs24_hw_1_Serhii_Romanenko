@@ -14,6 +14,18 @@ server.on("request", (req, res) => {
     if (req.url === `/healthcheck` && req.method === "GET") {
       res.writeHead(200);
       res.write("healthcheck passed");
+    } else if (
+      (req.url === `/healthcheck` && req.method !== "GET") ||
+      req.url !== "/healthcheck"
+    ) {
+      res.writeHead(404);
+      res.write("404 Not Found");
+    }
+
+    if (res.statusCode === 200) {
+      logger.info(`${req.method} ${req.url} ${res.statusCode}`);
+    } else {
+      logger.warn(`${req.method} ${req.url} ${res.statusCode}`);
     }
   }
   res.end();
